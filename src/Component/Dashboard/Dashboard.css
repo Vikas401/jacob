@@ -1,0 +1,180 @@
+#dashboard .sidebar{
+    background-color: #7ea04d;
+    height: auto;
+    position: relative;
+}
+#dashboard .contain{
+    padding-top: 20px;
+}
+#dashboard .contain .heading{
+    text-align: left;
+}
+#dashboard .contain .second_row{
+    padding: 20px 10px 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#dashboard .contain .second_row .head{
+    text-align: left;
+}
+#dashboard .contain .second_row .time_filter{
+    padding-right: 4.5rem;
+}
+.contain .nav{
+    background-color: #708090;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+.contain .nav .nav-item .nav-link{
+    color: white;
+    font-size: 20px;
+}
+.contain .nav .nav-item .nav-link:hover{
+    color: blue;
+}
+.contain .nav .nav-item .sec{
+    margin-left: 3rem;
+}
+.contain .nav .nav-item .third{
+    margin-left: 1rem;
+}
+.contain2 {
+padding: 10px 0px 0px 16px;   
+}
+.contain2 .flag1{
+    background-color: #708090;
+    padding: 6px;
+    margin-right: 0.15rem;
+}
+.contain2 .flag2{
+    background-color: #708090;
+    margin-right: 0.3rem;
+    padding: 10px 5px 5px 5px;
+    border-radius: 0px 10px 10px 0px;
+}
+.contain2 .flag2 h6{
+    color: white;
+}
+.contain2 .flag2 h3{
+    color: white;
+}
+.contain2 img{
+   height: 4rem;
+   width: 2rem;
+}
+#dashboard .topic_cloud{
+    padding-top: 20px;
+    border: 1px solid black;
+    margin-top: 2rem;
+}
+.word_cloud{
+    background-color: white;
+    margin-top: 1rem;
+    text-align: left;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+
+}
+.word_cloud .entity{
+    display: flex;
+}
+.word_cloud button{
+    margin-left: 50rem;
+}
+.graphs{
+    background-color: white;
+    margin-top: 1rem;
+    text-align: left;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    #dashboard .sidebar {
+        height: 20vh;
+    }
+    .contain .nav .nav-item .third{
+        margin-left: 0rem;
+    }
+    #dashboard .contain .second_row .time_filter{
+        padding-right: 0.5rem;
+    }
+    .contain2 .flag2 h3{
+       text-align: center;
+    }
+    .nav-link {
+        display: block;
+        padding: 20px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    #dashboard .sidebar {
+        height: 10vh;
+    }
+    .contain .nav .nav-item .third{
+        margin-left: 0rem;
+    }
+    #dashboard .contain .second_row .time_filter{
+        padding-right: 20px;
+    }
+    .contain2 .flag2 h6{
+       font-size: 15px;
+    }
+    .contain2 .flag1{
+        margin-top: 5px;
+        width: 35%;
+     }
+     .contain2 .flag2{
+        width: 50%;
+        margin-top: 5px;
+     }
+    .contain2 .flag2 h3{
+        font-size: 20px;
+        text-align: center;
+     }
+     .contain2 img{
+        height: 4rem;
+        width: 2rem;
+     }
+     .contain2 {
+        padding: 10px 0px 0px 25px;
+    }
+    .nav-link {
+        display: block;
+        padding: 20px;
+    }
+    #dashboard .contain .second_row .head{
+        padding-top: 15px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .contain2 .flag2 h3{
+        font-size: 1.2rem;
+        text-align: center;
+     }
+     .contain2 .flag2 h6{
+        font-size: 0.9rem;
+        text-align: center;
+     }
+    .contain .nav .nav-item .sec{
+        margin-left: 3rem;
+    }
+    .contain .nav .nav-item .third{
+        margin-left: 0rem;
+    }
+    .contain .nav .nav-item .forth{
+        margin-left: 3rem;
+    }
+    .contain2 img{
+        height: 4rem;
+        width: 1rem;
+    }
+    #dashboard .contain .second_row .time_filter{
+        padding-right: 20px;
+    }
+  }
