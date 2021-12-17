@@ -1,21 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactWordcloud from 'react-wordcloud';
 import select from 'jquery';
+import './WordCloud.css';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
 const WordCloud = ({ data, childData }) => {
- 
+  const [count, setCount] = useState([]);
+  const [clicked, setclicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const [filtered, setFiltered] = useState([]);
+  const [change, setChange] = useState(false)
   const entityArray = [];
   var countArray = [];
-  const scoreArray = [];
+  var scoreArray = [];
   var sortArray = [];
+ 
   var temp = [];
   data.map((post) => {
     var createDate = post.createdDateTime
     post.senti_score.map((senti) => {
       var score = senti.score
-      // senti.topic.map((topics) => {
        senti.entities.map((entity) => {
         var json = {
           text: entity,
@@ -42,25 +47,7 @@ const WordCloud = ({ data, childData }) => {
         }
       }
     }
-
   }
-const handleClick = () => {
-  countArray.map(value => {
-    var countObject ={
-      count:value.value,
-      text:value.text
-    };
-    scoreArray.push(countObject)
- })
- scoreArray.sort(function (a, b) {
-  return b.count - a.count;
-});
-
- scoreArray.slice(0,10).map(value => {
-   sortArray.push(value)
- })
- countArray = sortArray
-}
 
   const callbacks = {
     getWordColor: word =>
@@ -80,14 +67,16 @@ const handleClick = () => {
       const element = event.target
       const text = select(element)
       text
-        .attr('font-size', isActive ? '200%' : '100%')
+        .attr('font-size', isActive ? '170%' : word.size)
         .attr('font-weight', isActive ? 'bold' : 'unbold')
     },
     onWordMouseOut: (word, event) => {
+   
       const isActive = 'onWordMouseOut' !== 'onWordMouseOver'
       const element = event.target
       const text = select(element)
-      text.attr('font-size', isActive ? '100%' : '200%')
+      text.attr('font-size', isActive ? word.size : '170%')
+      .attr('font-weight', isActive ? 'unbold' : 'bold')
     },
     getWordTooltip: word => `(Count: ${word.value}) (Score: ${word.score})`
   }
@@ -98,16 +87,49 @@ const handleClick = () => {
     rotationAngles: [0],
     fontSizes: [10,40],
   };
-  var words = countArray
-  console.log(words)
+  const size = [1200, 400];
+  var words;
+
+  const handleChange = (e) => {
+    setChange(true)
+    let currentList = [];
+    let newList = [];
+    if (e.target.value !== "") {
+      currentList = words;
+      newList = currentList.filter(item => {
+        const lc = item.text.toLowerCase();
+        const filter = e.target.value.toLowerCase();
+        return lc.includes(filter);
+      });
+    } else {
+      newList = countArray;
+      filtered.length = 0
+    }
+      setFiltered(newList)
+  }
+
+  if(filtered.length > 0){
+    words = filtered
+  }else{
+    if(clicked){
+      words = count
+   }else{
+      words = countArray
+   }
+  }
+
   return (
-    <div>
-       <button type="button" className="btn btn-primary" onClick={handleClick}>Top 10 Entities</button>
+    <div className="word_cloudMap">
+         <form class="d-flex">
+        <input class="form-control" type="search" onChange={handleChange} placeholder="Search Entity" aria-label="Search"/>
+      </form>
       <ReactWordcloud
         callbacks={callbacks}
         options={options}
+        // size={size}
         words={words} />
     </div>
   )
+  
 }
 export default WordCloud;

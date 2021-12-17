@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: whitesmoke;
+  font-family: Rockwell;
 }
 
 .App-logo {
@@ -27,6 +28,13 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.uploads{
+  text-align: initial;
+    padding: 100px;
+    background-color: cadetblue;
+    margin: 10rem;
 }
 
 @keyframes App-logo-spin {

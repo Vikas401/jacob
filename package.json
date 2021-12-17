@@ -1,5 +1,6 @@
 {
   "name": "jcob_front",
+  "homepage": "https://zentyment.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,15 +9,17 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.21.0",
     "d3": "^6.2.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "lodash": "^4.17.20",
     "react": "^17.0.0",
     "react-d3-graph": "^2.5.0",
     "react-dom": "^17.0.0",
     "react-graph-vis": "^1.0.5",
+    "react-magnifier": "^3.0.4",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
+    "react-toastify": "^7.0.4",
     "react-wordcloud": "^1.2.7",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
